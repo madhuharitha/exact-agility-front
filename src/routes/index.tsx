@@ -168,8 +168,11 @@ function WhyUs() {
     "Target Agility Alumni receive exclusive benefits, including access to Agile job openings.",
   ];
   return (
-    <section className="py-28 bg-[var(--soft-blue)]">
-      <div className="container-ta grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative py-28 bg-[var(--soft-blue)] overflow-hidden">
+      <div aria-hidden className="absolute inset-0 deco-cross opacity-40" />
+      <div aria-hidden className="absolute -top-12 right-10 h-40 w-40 rounded-full border-4 border-[var(--gold)]/30" />
+      <div aria-hidden className="absolute bottom-10 -left-10 h-56 w-56 rounded-3xl bg-white/60 rotate-12" />
+      <div className="container-ta relative grid lg:grid-cols-2 gap-14 items-center">
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <p className="eyebrow">About Target Agility</p>
           <h2 className="h-section mt-3">Why Choose Us?</h2>
