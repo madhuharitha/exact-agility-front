@@ -64,26 +64,37 @@ function Hero() {
   ];
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="container-ta grid lg:grid-cols-2 gap-10 items-center py-16 lg:py-20">
-        <motion.div initial="hidden" animate="show" variants={fadeUp} className="space-y-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-[var(--navy)] leading-tight">
-            Ready to level up your career?<br />Let's make it happen!
+      {/* decorative blue blocks */}
+      <div aria-hidden className="pointer-events-none absolute -top-10 -left-16 h-72 w-72 rounded-3xl bg-[var(--soft-blue)] rotate-12 opacity-80" />
+      <div aria-hidden className="pointer-events-none absolute top-40 right-[-60px] h-80 w-80 rounded-full bg-[color-mix(in_oklab,var(--navy)_8%,white)] opacity-70" />
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/3 h-40 w-40 rounded-2xl border-2 border-[var(--gold)]/30 rotate-12" />
+
+      <div className="container-ta relative grid lg:grid-cols-2 gap-14 items-center py-24 lg:py-32">
+        <motion.div initial="hidden" animate="show" variants={fadeUp} className="space-y-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--navy)] leading-[1.1] tracking-tight">
+            Ready to level up your career?<br /><span className="text-[var(--navy)]">Let's make it happen!</span>
           </h1>
-          <div className="space-y-5">
+          <div className="space-y-6">
             {cards.map((c) => (
-              <div key={c.title} className="card-soft flex items-center gap-5 p-5 hover:-translate-y-0.5 transition-transform">
-                <div className={`h-20 w-20 shrink-0 rounded-full bg-gradient-to-br ${c.color} grid place-items-center text-white text-[11px] font-bold text-center px-1`}>{c.abbr}</div>
+              <div key={c.title} className="card-soft flex items-center gap-6 p-6 hover:-translate-y-0.5 transition-transform">
+                <div className={`h-24 w-24 shrink-0 rounded-full bg-gradient-to-br ${c.color} grid place-items-center text-white text-xs font-bold text-center px-2 shadow-lg`}>{c.abbr}</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-[var(--navy)] text-lg">{c.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-0.5">Next Batch on: {c.date}</p>
-                  <button className="btn-gold-sm mt-3">Click here</button>
+                  <h3 className="font-semibold text-[var(--navy)] text-xl">{c.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Next Batch on: {c.date}</p>
+                  <button className="btn-gold-sm mt-4">Click here</button>
                 </div>
               </div>
             ))}
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="relative">
-          <img src={heroImg} alt="Career growth" className="w-full max-w-[560px] mx-auto" width={1024} height={1024} />
+          {/* layered geometry behind image */}
+          <div aria-hidden className="absolute inset-0 -z-0">
+            <div className="absolute top-6 right-6 h-72 w-72 rounded-full bg-[var(--soft-blue)]" />
+            <div className="absolute bottom-10 left-2 h-40 w-40 rounded-2xl bg-[color-mix(in_oklab,var(--navy)_10%,white)] rotate-6" />
+            <div className="absolute top-1/3 -left-6 h-24 w-24 rounded-full border-4 border-[var(--gold)]/40" />
+          </div>
+          <img src={heroImg} alt="Career growth" className="relative w-full max-w-[620px] mx-auto drop-shadow-[0_30px_60px_rgba(13,27,61,0.18)]" width={1024} height={1024} />
         </motion.div>
       </div>
     </section>
