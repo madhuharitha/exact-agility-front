@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Phone, Mail, Youtube, Linkedin, MessageCircle, ChevronDown,
-  Calendar, ArrowRight, Star, MapPin,
+  Calendar, ArrowRight, Star, Users, Briefcase, Award, GraduationCap, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import heroImg from "@/assets/hero-celebrate.jpg";
 
@@ -16,15 +16,15 @@ const fadeUp = {
 function TopBar() {
   return (
     <div className="bg-[var(--navy)] text-white text-sm">
-      <div className="container-ta flex items-center justify-between py-2.5 flex-wrap gap-2">
-        <div className="flex items-center gap-6 flex-wrap">
-          <span className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 933-029-9565</span>
-          <span className="flex items-center gap-2"><Mail className="h-4 w-4" /> connect@targetagility.com</span>
+      <div className="container-ta flex items-center justify-between py-3 flex-wrap gap-2">
+        <div className="flex items-center gap-8 flex-wrap">
+          <span className="flex items-center gap-2"><Phone className="h-4 w-4" />+91 933-029-9565</span>
+          <span className="flex items-center gap-2"><Mail className="h-4 w-4" />connect@targetagility.com</span>
         </div>
-        <div className="flex items-center gap-4">
-          <Youtube className="h-4 w-4 cursor-pointer hover:text-[var(--gold)]" />
-          <MessageCircle className="h-4 w-4 cursor-pointer hover:text-[var(--gold)]" />
-          <Linkedin className="h-4 w-4 cursor-pointer hover:text-[var(--gold)]" />
+        <div className="flex items-center gap-5">
+          <Youtube className="h-5 w-5 cursor-pointer hover:text-[var(--gold)]" />
+          <MessageCircle className="h-5 w-5 cursor-pointer hover:text-[var(--gold)]" />
+          <Linkedin className="h-5 w-5 cursor-pointer hover:text-[var(--gold)]" />
           <a href="#contact" className="btn-gold-sm ml-2">Contact Us</a>
         </div>
       </div>
@@ -32,22 +32,38 @@ function TopBar() {
   );
 }
 
+function Logo() {
+  return (
+    <a href="#" className="flex flex-col items-center gap-1">
+      <svg viewBox="0 0 60 50" className="h-12 w-14">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#22c2d6" />
+            <stop offset="40%" stopColor="#f5a623" />
+            <stop offset="100%" stopColor="#c0399f" />
+          </linearGradient>
+        </defs>
+        <path d="M30 4 L56 46 L4 46 Z" fill="none" stroke="url(#lg)" strokeWidth="5" strokeLinejoin="round" />
+        <path d="M22 30 L30 14 L38 30" fill="none" stroke="url(#lg)" strokeWidth="4" strokeLinejoin="round" />
+      </svg>
+      <div className="leading-tight text-center">
+        <div className="font-bold text-[var(--navy)] text-[11px] tracking-[0.2em]">TARGET AGILITY</div>
+        <div className="text-[8px] text-muted-foreground -mt-0.5 italic">Accelerating the agility within you!</div>
+      </div>
+    </a>
+  );
+}
+
 function Navbar() {
   const links = ["Courses", "Scrum Bootcamp", "Job Opportunities", "Referral program", "Resources", "Career Connects"];
   const hasDropdown = new Set(["Courses", "Resources", "Career Connects"]);
   return (
-    <nav className="bg-white sticky top-0 z-40 shadow-[0_2px_8px_rgba(13,27,61,0.06)]">
-      <div className="container-ta flex items-center justify-between h-20">
-        <a href="#" className="flex items-center gap-2">
-          <div className="h-11 w-11 rounded-md bg-gradient-to-br from-[var(--gold)] via-pink-400 to-[var(--navy)]" />
-          <div className="leading-tight">
-            <div className="font-bold text-[var(--navy)] text-lg tracking-wide">TARGET AGILITY</div>
-            <div className="text-[10px] text-muted-foreground -mt-0.5">Accelerating the agility within you!</div>
-          </div>
-        </a>
-        <ul className="hidden lg:flex items-center gap-7">
+    <nav className="bg-white sticky top-0 z-40 shadow-[0_2px_10px_rgba(13,27,61,0.06)]">
+      <div className="container-ta flex items-center justify-between h-24">
+        <Logo />
+        <ul className="hidden lg:flex items-center gap-9">
           {links.map(l => (
-            <li key={l} className="text-[15px] font-medium text-[var(--navy)] hover:text-[var(--gold)] cursor-pointer flex items-center gap-1">
+            <li key={l} className="text-[15px] font-semibold text-[var(--navy)] hover:text-[var(--gold)] cursor-pointer flex items-center gap-1">
               {l}{hasDropdown.has(l) && <ChevronDown className="h-3.5 w-3.5" />}
             </li>
           ))}
@@ -63,23 +79,18 @@ function Hero() {
     { title: "PSPO-AI Essentials", date: "31/05/26", color: "from-emerald-400 to-emerald-600", abbr: "PSPO-AI" },
   ];
   return (
-    <section className="relative overflow-hidden bg-white">
-      {/* decorative blue blocks */}
-      <div aria-hidden className="pointer-events-none absolute -top-10 -left-16 h-72 w-72 rounded-3xl bg-[var(--soft-blue)] rotate-12 opacity-80" />
-      <div aria-hidden className="pointer-events-none absolute top-40 right-[-60px] h-80 w-80 rounded-full bg-[color-mix(in_oklab,var(--navy)_8%,white)] opacity-70" />
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/3 h-40 w-40 rounded-2xl border-2 border-[var(--gold)]/30 rotate-12" />
-
-      <div className="container-ta relative grid lg:grid-cols-2 gap-14 items-center py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-[#fafbfc]">
+      <div className="container-ta relative grid lg:grid-cols-2 gap-14 items-center py-20 lg:py-28">
         <motion.div initial="hidden" animate="show" variants={fadeUp} className="space-y-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--navy)] leading-[1.1] tracking-tight">
-            Ready to level up your career?<br /><span className="text-[var(--navy)]">Let's make it happen!</span>
+          <h1 className="text-4xl md:text-5xl lg:text-[52px] font-bold text-[var(--navy)] leading-[1.15] tracking-tight">
+            Ready to level up your career?<br />Let's make it happen!
           </h1>
           <div className="space-y-6">
             {cards.map((c) => (
               <div key={c.title} className="card-soft flex items-center gap-6 p-6 hover:-translate-y-0.5 transition-transform">
                 <div className={`h-24 w-24 shrink-0 rounded-full bg-gradient-to-br ${c.color} grid place-items-center text-white text-xs font-bold text-center px-2 shadow-lg`}>{c.abbr}</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-[var(--navy)] text-xl">{c.title}</h3>
+                  <h3 className="font-bold text-[var(--navy)] text-xl">{c.title}</h3>
                   <p className="text-sm text-muted-foreground mt-1">Next Batch on: {c.date}</p>
                   <button className="btn-gold-sm mt-4">Click here</button>
                 </div>
@@ -88,13 +99,11 @@ function Hero() {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="relative">
-          {/* layered geometry behind image */}
-          <div aria-hidden className="absolute inset-0 -z-0">
-            <div className="absolute top-6 right-6 h-72 w-72 rounded-full bg-[var(--soft-blue)]" />
-            <div className="absolute bottom-10 left-2 h-40 w-40 rounded-2xl bg-[color-mix(in_oklab,var(--navy)_10%,white)] rotate-6" />
-            <div className="absolute top-1/3 -left-6 h-24 w-24 rounded-full border-4 border-[var(--gold)]/40" />
+          <div aria-hidden className="absolute inset-0 -z-0 grid place-items-center">
+            <div className="h-[420px] w-[420px] rounded-full bg-[var(--gold)]" />
           </div>
-          <img src={heroImg} alt="Career growth" className="relative w-full max-w-[620px] mx-auto drop-shadow-[0_30px_60px_rgba(13,27,61,0.18)]" width={1024} height={1024} />
+          <div aria-hidden className="absolute right-0 bottom-0 -z-0 h-[70%] w-[80%] bg-[var(--navy)]" style={{ clipPath: "polygon(20% 100%, 100% 0, 100% 100%)" }} />
+          <img src={heroImg} alt="Career growth" className="relative w-full max-w-[560px] mx-auto" width={1024} height={1024} />
         </motion.div>
       </div>
     </section>
@@ -103,19 +112,19 @@ function Hero() {
 
 function Stats() {
   const stats = [
-    { n: "3500+", l: "Students Trained" },
-    { n: "4", l: "Rated on Trustpilot" },
-    { n: "25+", l: "Companies trained" },
-    { n: "270+", l: "Trainings Delivered" },
+    { n: "4,500+", l: "Students Trained" },
+    { n: "5", l: "Rated on Trustpilot" },
+    { n: "30+", l: "Companies trained" },
+    { n: "300+", l: "Trainings Delivered" },
   ];
   return (
-    <section className="bg-[var(--soft-blue)] py-20">
+    <section className="bg-[var(--soft-blue)] py-16">
       <div className="container-ta grid grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((s, i) => (
           <motion.div key={s.l} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-xl bg-[var(--navy)] text-white py-10 text-center shadow-[0_10px_30px_rgba(13,27,61,0.15)]">
-            <div className="text-4xl font-bold text-[var(--gold)]">{s.n}</div>
-            <div className="text-sm mt-2 text-[var(--gold)]/90">{s.l}</div>
+            className="rounded-xl bg-[var(--navy)] text-white py-12 text-center shadow-[0_10px_30px_rgba(13,27,61,0.18)]">
+            <div className="text-5xl font-bold text-[var(--gold)]">{s.n}</div>
+            <div className="text-base mt-3 text-[var(--gold)]/95">{s.l}</div>
           </motion.div>
         ))}
       </div>
@@ -133,23 +142,23 @@ function Courses() {
     { tag: "Best Seller", title: "Professional Scrum Product Owner Advanced", date: "TBD", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=360&fit=crop" },
   ];
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 bg-[#fafbfc]">
       <div className="container-ta">
-        <div className="text-center mb-12">
-          <p className="eyebrow">Courses</p>
+        <div className="text-center mb-14">
+          <p className="text-[var(--navy)] font-semibold text-base">Courses</p>
           <h2 className="h-section mt-3">Most In-Demand Courses</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {courses.map((c, i) => (
             <motion.div key={c.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: (i % 3) * 0.08 }}
-              className="card-soft overflow-hidden group">
-              <div className="relative">
-                <img src={c.img} alt={c.title} loading="lazy" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
-                <span className="chip-gold absolute top-3 left-3">{c.tag}</span>
+              className="rounded-2xl bg-[var(--soft-blue)] overflow-hidden group ring-1 ring-black/5">
+              <div className="relative p-3">
+                <img src={c.img} alt={c.title} loading="lazy" className="w-full h-48 object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-500" />
+                <span className="absolute top-5 left-5 inline-block rounded-md bg-orange-500 px-3 py-1 text-[11px] font-semibold text-white">{c.tag}</span>
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-[var(--navy)] text-base leading-snug min-h-[48px]">{c.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2 flex items-center gap-2"><Calendar className="h-4 w-4" /> Next Batch Starts on: {c.date}</p>
+              <div className="p-5 pt-2">
+                <h3 className="font-bold text-[var(--navy)] text-lg leading-snug min-h-[56px]">{c.title}</h3>
+                <p className="text-sm text-muted-foreground mt-3 flex items-center gap-2"><Calendar className="h-4 w-4" />Next Batch Starts on: {c.date}</p>
                 <button className="btn-gold-sm mt-4 w-full">Enroll Now</button>
               </div>
             </motion.div>
@@ -162,33 +171,55 @@ function Courses() {
 
 function WhyUs() {
   const benefits = [
-    "Experience the ongoing advantages of our esteemed alumni community by joining us.",
-    "Join Target Agility to extend your benefits beyond course completion.",
-    "Exclusive webinars featuring tips on job search and interview preparation.",
-    "Target Agility Alumni receive exclusive benefits, including access to Agile job openings.",
+    { icon: Users, text: "Experience the ongoing advantages of our esteemed alumni community by joining us." },
+    { icon: GraduationCap, text: "Join Target Agility to extend your benefits beyond course completion." },
+    { icon: Award, text: "Exclusive webinars featuring tips on job search and interview preparation." },
+    { icon: Briefcase, text: "Target Agility Alumni receive exclusive benefits, including access to Agile job openings." },
   ];
   return (
-    <section className="relative py-28 bg-[var(--soft-blue)] overflow-hidden">
-      <div aria-hidden className="absolute inset-0 deco-cross opacity-40" />
-      <div aria-hidden className="absolute -top-12 right-10 h-40 w-40 rounded-full border-4 border-[var(--gold)]/30" />
-      <div aria-hidden className="absolute bottom-10 -left-10 h-56 w-56 rounded-3xl bg-white/60 rotate-12" />
+    <section className="relative py-24 bg-white overflow-hidden">
       <div className="container-ta relative grid lg:grid-cols-2 gap-14 items-center">
-        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <p className="eyebrow">About Target Agility</p>
+        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center lg:text-left">
+          <p className="text-[var(--navy)] font-semibold text-base">About Target Agility</p>
           <h2 className="h-section mt-3">Why Choose Us?</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
             At Target Agility, we take pride in our journey and the achievements that define us as a leading company in our field. Our commitment to excellence and innovation has propelled us to reach several significant milestones over the years.
           </p>
-          <button className="btn-gold mt-7">Know More</button>
+          <button className="btn-gold mt-8">Know More</button>
         </motion.div>
-        <motion.ul initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="space-y-4">
-          {benefits.map((b) => (
-            <li key={b} className="flex gap-4 card-soft p-5">
-              <div className="h-9 w-9 rounded-full bg-[var(--gold)] grid place-items-center text-[var(--navy)] font-bold shrink-0">★</div>
-              <p className="text-[var(--navy)] text-sm leading-relaxed">{b}</p>
-            </li>
-          ))}
-        </motion.ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="rounded-2xl bg-[var(--soft-blue)] p-7 text-center">
+                <div className="h-14 w-14 rounded-full bg-[var(--navy)] grid place-items-center mx-auto">
+                  <Icon className="h-6 w-6 text-white" />
+                </div>
+                <p className="mt-5 text-[var(--navy)] font-semibold text-[15px] leading-relaxed">{b.text}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ReferEarn() {
+  return (
+    <section className="py-12 bg-[#fafbfc]">
+      <div className="container-ta">
+        <div className="rounded-2xl bg-[var(--navy)] overflow-hidden grid md:grid-cols-2 items-center">
+          <div className="relative h-64 md:h-72">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&h=600&fit=crop" alt="Refer" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="p-10">
+            <h3 className="text-3xl md:text-4xl font-bold text-[var(--gold)]">Refer &amp; Earn</h3>
+            <p className="mt-4 text-white/85 leading-relaxed">The more you refer, the more you earn! Get Rs 1000/- every time you refer a person.</p>
+            <button className="btn-gold mt-6">Refer now</button>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -201,10 +232,10 @@ function Reviews() {
     text: "Quasi quo sit suscipit tempora aperiam rerum placeat id. Voluptatem praesentium excepturi id. Repudiandae incidunt doloremque. Error est et ullam.",
   }));
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 bg-[#f5f5f5]">
       <div className="container-ta">
-        <div className="text-center mb-12">
-          <p className="eyebrow">Reviews</p>
+        <div className="text-center mb-14">
+          <p className="text-[#3b82f6] font-semibold uppercase tracking-widest text-sm">Reviews</p>
           <h2 className="h-section mt-3">What customers say about Us</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -227,18 +258,19 @@ function Reviews() {
 
 function Corporate() {
   return (
-    <section className="py-28 bg-[var(--navy)] text-white">
-      <div className="container-ta grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-3xl md:text-4xl font-bold">Corporate Training</h2>
-          <p className="mt-5 text-white/80 leading-relaxed max-w-lg">
-            Utilize Our Customized Corporate Training Programs for Agile Scrum, SAFe, and DevOps to Maintain a Competitive Edge and Achieve Success in the Digital Era.
+    <section className="relative py-28 text-white overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&h=900&fit=crop" alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-[var(--navy)]/75" />
+      <div className="container-ta relative">
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-bold">Corporate Training</h2>
+          <p className="mt-5 text-white/90 leading-relaxed text-lg">
+            Utilize Our Customized Corporate Training Programs for AgileScrum, SAFe, and DevOps to Maintain a Competitive Edge and Achieve Success in the Digital Era.
           </p>
-          <button className="btn-gold mt-7">Connect with us</button>
+          <button className="mt-8 inline-flex items-center justify-center rounded-md bg-red-600 hover:bg-red-700 px-10 py-4 text-base font-semibold text-white shadow-lg transition">
+            Connect with us
+          </button>
         </motion.div>
-        <motion.img initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-          src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=600&fit=crop" alt="Corporate training" loading="lazy"
-          className="rounded-xl shadow-2xl object-cover w-full h-[360px]" />
       </div>
     </section>
   );
@@ -252,32 +284,34 @@ function Events() {
       bullets: ["Curious about what it takes to grow in the field?", "How to transition into Product Management", "Key skills that separate great PMs from good ones", "Job market trends & future opportunities", "Live Q&A—bring your questions!"] },
   ];
   return (
-    <section className="py-28 bg-[var(--soft-blue)]">
+    <section className="py-24 bg-[#fafbfc] relative">
       <div className="container-ta">
-        <div className="text-center mb-12">
-          <p className="eyebrow">Events</p>
+        <div className="text-center mb-14">
+          <p className="text-[var(--navy)] font-semibold text-base">Events</p>
           <h2 className="h-section mt-3">Register for your next event</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-7">
+        <div className="grid md:grid-cols-2 gap-7 relative">
+          <button aria-label="prev" className="hidden md:grid place-items-center absolute -left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-md bg-[var(--gold)]/30 hover:bg-[var(--gold)] text-[var(--navy)] z-10"><ChevronLeft className="h-5 w-5" /></button>
+          <button aria-label="next" className="hidden md:grid place-items-center absolute -right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-md bg-[var(--gold)]/30 hover:bg-[var(--gold)] text-[var(--navy)] z-10"><ChevronRight className="h-5 w-5" /></button>
           {events.map((e, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}
-              className="card-soft overflow-hidden">
-              <img src={e.img} alt={e.title} loading="lazy" className="w-full h-52 object-cover" />
-              <div className="p-6">
-                <h3 className="font-bold text-[var(--navy)] text-lg">{e.title}</h3>
-                <ul className="mt-4 space-y-2">
+              className="rounded-2xl bg-[var(--soft-blue)] overflow-hidden p-4">
+              <img src={e.img} alt={e.title} loading="lazy" className="w-full h-56 object-cover rounded-lg" />
+              <div className="p-4">
+                <h3 className="font-bold text-[var(--navy)] text-lg text-center">{e.title}</h3>
+                <ul className="mt-4 space-y-2 text-center">
                   {e.bullets.map((b, k) => (
-                    <li key={k} className="text-sm text-muted-foreground flex gap-2">
-                      <span className="text-[var(--gold)] mt-1">●</span>{b}
-                    </li>
+                    <li key={k} className="text-sm text-muted-foreground">{b}</li>
                   ))}
                 </ul>
-                <button className="btn-gold-sm mt-5 inline-flex gap-2">Read More <ArrowRight className="h-3.5 w-3.5" /></button>
+                <div className="text-center">
+                  <button className="btn-gold-sm mt-5 inline-flex gap-2">Read More<ArrowRight className="h-3.5 w-3.5" /></button>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <button className="btn-gold">View All Events</button>
         </div>
       </div>
@@ -292,25 +326,31 @@ function Blogs() {
     { title: "How AI Can Answer PSM-Level Questions Better Than Most Scrum Masters", excerpt: "Professional Scrum Master (PSM) certification tests a candidate's understanding of…", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=360&fit=crop" },
   ];
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 bg-[#f5f5f5] relative">
       <div className="container-ta">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <h2 className="h-section">Read Our latest Blogs</h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 relative">
+          <button aria-label="prev" className="hidden md:grid place-items-center absolute -left-8 top-1/2 -translate-y-1/2 text-[var(--navy)]/60 hover:text-[var(--navy)] z-10"><ChevronLeft className="h-6 w-6" /></button>
+          <button aria-label="next" className="hidden md:grid place-items-center absolute -right-8 top-1/2 -translate-y-1/2 text-[var(--navy)]/60 hover:text-[var(--navy)] z-10"><ChevronRight className="h-6 w-6" /></button>
           {blogs.map((b, i) => (
             <motion.article key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="card-soft overflow-hidden group">
-              <img src={b.img} alt={b.title} loading="lazy" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              className="rounded-2xl bg-white shadow-[0_10px_30px_-12px_rgba(13,27,61,0.18)] overflow-hidden group">
+              <div className="relative">
+                <img src={b.img} alt={b.title} loading="lazy" className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <h3 className="absolute bottom-3 left-4 right-4 font-bold text-white text-lg leading-tight">{b.title}</h3>
+              </div>
               <div className="p-6">
                 <h3 className="font-bold text-[var(--navy)] leading-snug">{b.title}</h3>
                 <p className="text-sm text-muted-foreground mt-3">{b.excerpt}</p>
-                <a className="text-[var(--gold)] font-semibold text-sm mt-4 inline-flex items-center gap-1 hover:gap-2 transition-all">Read More »</a>
+                <a className="text-[var(--navy)] underline font-medium text-sm mt-4 inline-flex items-center gap-1 cursor-pointer">Read More »</a>
               </div>
             </motion.article>
           ))}
         </div>
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <button className="btn-gold">View All Blogs</button>
         </div>
       </div>
@@ -320,42 +360,40 @@ function Blogs() {
 
 function Footer() {
   return (
-    <footer id="contact" className="bg-[var(--navy)] text-white pt-12 pb-6">
-      <div className="container-ta grid md:grid-cols-4 gap-8 text-sm">
-        <div>
-          <div className="font-bold text-lg text-[var(--gold)]">TARGET AGILITY</div>
-          <p className="mt-3 text-white/75 leading-relaxed">Accelerating the agility within you. Premium training in Agile, Scrum, SAFe & DevOps.</p>
-        </div>
-        <div>
-          <h4 className="font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2 text-white/75">
-            <li className="hover:text-[var(--gold)] cursor-pointer">Courses</li>
-            <li className="hover:text-[var(--gold)] cursor-pointer">Scrum Bootcamp</li>
-            <li className="hover:text-[var(--gold)] cursor-pointer">Job Opportunities</li>
-            <li className="hover:text-[var(--gold)] cursor-pointer">Resources</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-semibold mb-3">Contact</h4>
-          <ul className="space-y-2 text-white/75">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 933-029-9565</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> connect@targetagility.com</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> India</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-semibold mb-3">Follow Us</h4>
+    <footer id="contact">
+      <div className="bg-white py-10">
+        <div className="container-ta flex flex-col md:flex-row items-center justify-between gap-6">
+          <Logo />
           <div className="flex gap-3">
-            <a className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition"><Youtube className="h-4 w-4" /></a>
-            <a className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition"><Linkedin className="h-4 w-4" /></a>
-            <a className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition"><MessageCircle className="h-4 w-4" /></a>
+            <a className="h-10 w-10 grid place-items-center rounded-full bg-red-600 text-white"><Youtube className="h-5 w-5" /></a>
+            <a className="h-10 w-10 grid place-items-center rounded-full bg-green-500 text-white"><MessageCircle className="h-5 w-5" /></a>
+            <a className="h-10 w-10 grid place-items-center rounded-full bg-blue-600 text-white"><Linkedin className="h-5 w-5" /></a>
           </div>
         </div>
       </div>
-      <div className="container-ta mt-8 pt-5 border-t border-white/10 text-center text-xs text-white/60">
-        © {new Date().getFullYear()} Target Agility. All rights reserved.
+      <div className="bg-[var(--navy)] text-white py-5 text-sm">
+        <div className="container-ta flex flex-col md:flex-row items-center justify-between gap-3">
+          <p>Copyright © 2024. Target Agility. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-2 gap-y-1 justify-center">
+            <a className="underline hover:text-[var(--gold)] cursor-pointer">Contact Us</a><span>|</span>
+            <a className="underline hover:text-[var(--gold)] cursor-pointer">Privacy Policy</a><span>|</span>
+            <a className="underline hover:text-[var(--gold)] cursor-pointer">Return, refund, &amp; cancellation</a><span>|</span>
+            <a className="underline hover:text-[var(--gold)] cursor-pointer">Refer and earn</a><span>|</span>
+            <a className="underline hover:text-[var(--gold)] cursor-pointer">Terms &amp; Conditions</a>
+          </div>
+        </div>
       </div>
     </footer>
+  );
+}
+
+function FloatingButtons() {
+  return (
+    <>
+      <a aria-label="WhatsApp" className="fixed bottom-5 left-5 z-50 h-12 w-12 grid place-items-center rounded-md bg-green-500 text-white shadow-lg hover:scale-105 transition cursor-pointer">
+        <MessageCircle className="h-6 w-6" />
+      </a>
+    </>
   );
 }
 
@@ -368,11 +406,13 @@ function Index() {
       <Stats />
       <Courses />
       <WhyUs />
+      <ReferEarn />
       <Reviews />
       <Corporate />
       <Events />
       <Blogs />
       <Footer />
+      <FloatingButtons />
     </main>
   );
 }
