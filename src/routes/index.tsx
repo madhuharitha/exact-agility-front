@@ -109,7 +109,7 @@ function Stats() {
     { n: "270+", l: "Trainings Delivered" },
   ];
   return (
-    <section className="bg-[var(--soft-blue)] py-14">
+    <section className="bg-[var(--soft-blue)] py-20">
       <div className="container-ta grid grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((s, i) => (
           <motion.div key={s.l} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
@@ -133,7 +133,7 @@ function Courses() {
     { tag: "Best Seller", title: "Professional Scrum Product Owner Advanced", date: "TBD", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=360&fit=crop" },
   ];
   return (
-    <section className="py-20 bg-white">
+    <section className="py-28 bg-white">
       <div className="container-ta">
         <div className="text-center mb-12">
           <p className="eyebrow">Courses</p>
@@ -168,7 +168,7 @@ function WhyUs() {
     "Target Agility Alumni receive exclusive benefits, including access to Agile job openings.",
   ];
   return (
-    <section className="py-20 bg-[var(--soft-blue)]">
+    <section className="py-28 bg-[var(--soft-blue)]">
       <div className="container-ta grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <p className="eyebrow">About Target Agility</p>
@@ -198,7 +198,7 @@ function Reviews() {
     text: "Quasi quo sit suscipit tempora aperiam rerum placeat id. Voluptatem praesentium excepturi id. Repudiandae incidunt doloremque. Error est et ullam.",
   }));
   return (
-    <section className="py-20 bg-white">
+    <section className="py-28 bg-white">
       <div className="container-ta">
         <div className="text-center mb-12">
           <p className="eyebrow">Reviews</p>
@@ -224,7 +224,7 @@ function Reviews() {
 
 function Corporate() {
   return (
-    <section className="py-20 bg-[var(--navy)] text-white">
+    <section className="py-28 bg-[var(--navy)] text-white">
       <div className="container-ta grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl md:text-4xl font-bold">Corporate Training</h2>
@@ -249,7 +249,7 @@ function Events() {
       bullets: ["Curious about what it takes to grow in the field?", "How to transition into Product Management", "Key skills that separate great PMs from good ones", "Job market trends & future opportunities", "Live Q&A—bring your questions!"] },
   ];
   return (
-    <section className="py-20 bg-[var(--soft-blue)]">
+    <section className="py-28 bg-[var(--soft-blue)]">
       <div className="container-ta">
         <div className="text-center mb-12">
           <p className="eyebrow">Events</p>
@@ -289,7 +289,7 @@ function Blogs() {
     { title: "How AI Can Answer PSM-Level Questions Better Than Most Scrum Masters", excerpt: "Professional Scrum Master (PSM) certification tests a candidate's understanding of…", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=360&fit=crop" },
   ];
   return (
-    <section className="py-20 bg-white">
+    <section className="py-28 bg-white">
       <div className="container-ta">
         <div className="text-center mb-12">
           <h2 className="h-section">Read Our latest Blogs</h2>
