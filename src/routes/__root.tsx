@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "TA Replica" },
+      { name: "description", content: "A structure-faithful frontend replication of targetagility.com, matching layout, spacing, and visual fidelity." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "TA Replica" },
+      { property: "og:description", content: "A structure-faithful frontend replication of targetagility.com, matching layout, spacing, and visual fidelity." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "TA Replica" },
+      { name: "twitter:description", content: "A structure-faithful frontend replication of targetagility.com, matching layout, spacing, and visual fidelity." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db6762d6-e7bd-46d2-8cd2-e99c959545f3/id-preview-35eaaf6e--834c9a03-2efd-4aa2-96b7-3b5b25dc0178.lovable.app-1778574552262.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db6762d6-e7bd-46d2-8cd2-e99c959545f3/id-preview-35eaaf6e--834c9a03-2efd-4aa2-96b7-3b5b25dc0178.lovable.app-1778574552262.png" },
     ],
     links: [
       {
